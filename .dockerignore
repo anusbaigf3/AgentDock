@@ -1,0 +1,47 @@
+# Node modules - these should be installed inside the container
+node_modules
+
+# Logs
+logs
+*.log
+
+# Environment files - should not be copied for security
+.env
+.env.*
+
+# Dependency directories
+bower_components
+jspm_packages
+
+# Test files and coverage
+coverage
+*.lcov
+
+# Build artifacts
+dist
+build
+tmp
+temp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker-related files (ignore Dockerfile if you're copying it manually)
+.dockerignore
+
+# Editor settings
+.vscode
+.idea
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.swp
+*.swo
+*.bak
