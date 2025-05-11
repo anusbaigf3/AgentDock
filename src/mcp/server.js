@@ -114,18 +114,18 @@ class MCPServer extends EventEmitter {
   /**
    * Register a new tool
    */
-  registerTool(id, tool) {
-    if (this.tools.has(id)) {
-      this.logger.warn(`Tool with ID ${id} already exists, replacing`);
+  registerTool(toolName, tool) {
+    if (this.tools.has(toolName)) {
+      this.logger.warn(`Tool with name ${toolName} already exists, replacing`);
     }
     
-    this.tools.set(id, tool);
-    this.emit('tool:registered', { id, tool });
+    this.tools.set(toolName, tool);
+    this.emit('tool:registered', { id: toolName, tool });
     
     // Make tool available to all agents
     this.agents.forEach(agent => {
       if (typeof agent.registerTool === 'function') {
-        agent.registerTool(id, tool);
+        agent.registerTool(toolName, tool);
       }
     });
     
@@ -135,13 +135,13 @@ class MCPServer extends EventEmitter {
   /**
    * Deregister a tool
    */
-  deregisterTool(id) {
-    if (!this.tools.has(id)) {
-      this.logger.warn(`Tool with ID ${id} not found, cannot deregister`);
+  deregisterTool(toolName) {
+    if (!this.tools.has(toolName)) {
+      this.logger.warn(`Tool with name ${toolName} not found, cannot deregister`);
       return false;
     }
     
-    const tool = this.tools.get(id);
+    const tool = this.tools.get(toolName);
     
     // Clean up any resources
     if (typeof tool.cleanup === 'function') {
@@ -151,12 +151,12 @@ class MCPServer extends EventEmitter {
     // Remove tool from all agents
     this.agents.forEach(agent => {
       if (typeof agent.deregisterTool === 'function') {
-        agent.deregisterTool(id);
+        agent.deregisterTool(toolName);
       }
     });
     
-    this.tools.delete(id);
-    this.emit('tool:deregistered', { id });
+    this.tools.delete(toolName);
+    this.emit('tool:deregistered', { id: toolName });
     return true;
   }
 

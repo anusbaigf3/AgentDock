@@ -1,4 +1,3 @@
-// src/controllers/agentController.js
 const { validationResult } = require('express-validator');
 const Agent = require('../models/Agent');
 const mcpServer = require('../mcp/server');

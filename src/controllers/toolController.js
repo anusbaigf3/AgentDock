@@ -201,14 +201,7 @@ exports.updateTool = async (req, res, next) => {
       runValidators: true
     });
     
-    // If tool is active, update it in MCP server
-    if (tool.isActive) {
-      // Deregister first to ensure clean state
-      mcpServer.deregisterTool(req.params.id);
-      
-      // Register with updated config
-      await loadAndRegisterTool(tool);
-    }
+    await loadAndRegisterTool(tool);
     
     res.status(200).json({
       status: 'success',
@@ -245,7 +238,7 @@ exports.deleteTool = async (req, res, next) => {
     }
     
     // Deregister from MCP server first
-    mcpServer.deregisterTool(req.params.id);
+    mcpServer.deregisterTool(req.params.id, false);
     
     // Remove from database
     await tool.deleteOne();
@@ -415,8 +408,14 @@ exports.deregisterTool = async (req, res, next) => {
  * @param {Object} toolDoc - Tool document from database
  * @returns {Promise<boolean>} - Success status
  */
-async function loadAndRegisterTool(toolDoc) {
+async function loadAndRegisterTool(toolDoc, isRegister = true) {
   try {
+
+    if (!toolDoc.isActive) {
+      logger.warn(`Tool ${toolDoc.name} is not active`);
+      return false;
+    }
+
     // Get tool type
     const toolType = toolDoc.type;
     
@@ -439,8 +438,14 @@ async function loadAndRegisterTool(toolDoc) {
       config: toolDoc.config
     });
     
+    const toolName = toolDoc.name.toString().toLowerCase();
+
     // Register tool
-    mcpServer.registerTool(toolDoc._id.toString(), tool);
+    if (isRegister) {
+      mcpServer.registerTool(toolName, tool);
+    } else {
+      mcpServer.deregisterTool(toolName);
+    }
     
     return true;
   } catch (error) {
