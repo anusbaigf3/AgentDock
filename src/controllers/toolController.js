@@ -435,7 +435,8 @@ async function loadAndRegisterTool(toolDoc) {
       description: toolDoc.description,
       endpoint: toolDoc.endpoint,
       authType: toolDoc.authType,
-      authConfig: toolDoc.authConfig
+      authConfig: toolDoc.authConfig,
+      config: toolDoc.config
     });
     
     // Register tool

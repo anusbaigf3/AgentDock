@@ -4,7 +4,7 @@ const LogSchema = new mongoose.Schema({
   agentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Agent',
-    required: true
+    required: false
   },
   toolId: {
     type: mongoose.Schema.Types.ObjectId,

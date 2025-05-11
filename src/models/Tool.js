@@ -45,6 +45,10 @@ const ToolSchema = new mongoose.Schema({
       default: false
     }
   }],
+  config: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {}
+    },
   isActive: {
     type: Boolean,
     default: true
