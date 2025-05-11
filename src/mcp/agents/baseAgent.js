@@ -152,7 +152,7 @@ class BaseAgent {
         
         // Execute tool action
 
-        const hasMatchingTool = Array.from(this.tools.values()).filter(t => t.config.type.toLowerCase() == toolName.toLowerCase());
+        const hasMatchingTool = Array.from(this.tools.values()).some(t => t.config.name.toLowerCase() == toolName.toLowerCase());
 
         if (hasMatchingTool) {
           const tool = this.tools.get(toolName);
