@@ -319,6 +319,18 @@ class WeatherTool extends BaseTool {
 }
 ```
 
+## Agent Executions
+# Slack
+1. Create Channel
+![Slack Create Channel Action](https://github.com/user-attachments/assets/f434b6f9-44b4-4b28-9327-b37e9c5e0e38)
+
+2. Find User
+![Slack Find User](https://github.com/user-attachments/assets/b07420a4-ca62-40ec-9ffb-22a790ff582e)
+
+3. Send Message to User
+![Slack send message](https://github.com/user-attachments/assets/6060c888-17f1-4751-ae2a-0b53f3e59354)
+![Slack message screen](https://github.com/user-attachments/assets/aaaa42ae-c8c0-4c11-932e-b99c21cffd76)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
