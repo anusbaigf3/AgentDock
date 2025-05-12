@@ -331,6 +331,15 @@ class WeatherTool extends BaseTool {
 ![Slack send message](https://github.com/user-attachments/assets/6060c888-17f1-4751-ae2a-0b53f3e59354)
 ![Slack message screen](https://github.com/user-attachments/assets/aaaa42ae-c8c0-4c11-932e-b99c21cffd76)
 
+# Github
+1. Merge Pull Request
+![Github PR Merge](https://github.com/user-attachments/assets/d8e99a8d-fbc5-4991-895c-b285f28cd921)
+![Screenshot 2025-05-12 121717](https://github.com/user-attachments/assets/b94836ab-4a37-449b-bce1-bb29074bf20c)
+
+2. Decline Pull Request
+![PR Declined Action](https://github.com/user-attachments/assets/e6feeb1e-effe-4511-b6ff-af03707440c1)
+![Screenshot 2025-05-12 121757](https://github.com/user-attachments/assets/54b19b3e-3a93-46b8-8f80-693818d0cfa9)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
