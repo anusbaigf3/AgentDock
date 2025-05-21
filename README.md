@@ -26,8 +26,8 @@ AgentDock is a Model Context Protocol (MCP) server with a clean UI to register, 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/agentdock.git
-   cd agentdock
+   git clone https://github.com/anusbaigf3/AgentDock
+   cd AgentDock
    ```
 
 2. Create a `.env` file in the root directory with your configuration:
@@ -67,8 +67,8 @@ AgentDock is a Model Context Protocol (MCP) server with a clean UI to register, 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/agentdock.git
-   cd agentdock
+   git clone https://github.com/anusbaigf3/AgentDock
+   cd AgentDock
    ```
 
 2. Set up the backend:
